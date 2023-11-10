@@ -7,6 +7,18 @@
             "request": "launch",
             "module": "main",
             "env": {"PYTHONPATH": "${workspaceFolder}"}
+        },
+        {
+            "name":"Django",
+            "python":"/Users/krzysiekbienias/Documents/django_full_stack/NUMERAIRE/numeraire_venv/bin/python3",
+            "type":"python",
+            "request": "launch",
+            "program": "/Users/krzysiekbienias/Documents/django_full_stack/NUMERAIRE/manage.py",
+            "console": "internalConsole",
+            "args": ["runserver"],
+            "django": true
+
+            
         }
     ]
 }
