@@ -22,7 +22,7 @@ All my trades
         />
         <ul class="nav__links">
         <li class="nav__item">
-            <a class="nav__link" href="index">Home<a>
+            <a class="nav__link" href="/">Home<a>
         </li>
         <li class="nav__item">
             <a class="nav__link" href="#section--2">Operations</a>
@@ -66,6 +66,10 @@ All my trades
         </div>
     </section>
 
+    <div id ='test_tag'>
+        
+    </div>
+
     <section>
         <table class="table table-dark table-striped">
             <thead>      
@@ -85,14 +89,49 @@ All my trades
             <tbody>
                 {% for trade in trades %}
                 <tr>
-                    <td>{{trade.Trade_Id}}</td>
-                    <td>{{trade.Underlier_Ticker}}</td>
-                    <td>{{trade.Product_Type}}</td>
-                    <td>{{trade.Payoff}}</td>
-                    <td>{{trade.Trade_Date}}</td>
-                    <td>{{trade.Trade_Maturity}}</td>
-                    <td>{{trade.Strike}}</td>
-                    <td>{{trade.Dividend}}</td>
+                    <td>{{trade.pk}}</td>
+                    <td>{{trade.fields.underlier_ticker}}</td>
+                    <td>{{trade.fields.product_type}}</td>
+                    <td>{{trade.fields.payoff}}</td>
+                    <td>{{trade.fields.trade_date}}</td>
+                    <td>{{trade.fields.trade_maturity}}</td>
+                    <td>{{trade.fields.strike}}</td>
+                    <td>{{trade.fields.dividend}}</td>
+                </tr>
+
+                {% endfor %}
+                
+            </tbody>
+
+        </table>
+    </section>
+
+    <section>
+        <form method="POST">
+            {% csrf_token %}
+            {{form}}
+            <button type="submit" class="btn">  Send Request</button>
+        </form>
+        <table class="table table-dark table-striped">
+            <thead>      
+                <tr>
+                    <th scope="col">Market Date</th>
+                    <th scope="col">Underlier Name</th>
+                    <th scope="col">Underlying Price</th>
+                    <th scope="col">Risk Free Rate</th>
+                    <th scope="col">Volatility</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                 {% for md in market_data %}
+                <tr>
+                    <td>{{md.market_date}}</td>
+                    <td>{{md.underlying_ticker}}</td>
+                    <td>{{md.underlying_price}}</td>
+                    <td>{{md.risk_free_rate}}</td>
+                    <td>{{md.volatility}}</td>
                 </tr>
 
                 {% endfor %}
