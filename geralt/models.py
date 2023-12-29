@@ -13,7 +13,7 @@ class TradeBookModel(models.Model):
     dividend=models.FloatField()
 
     def __str__(self) -> str:
-        return 
+        return f"trade id: {self.trade_id} underlier_ticker {self.underlier_ticker} product type: {self.product_type} payoff: {self.payoff} trade date: {self.trade_date} "
 
 
 class Person(models.Model):
