@@ -3,3 +3,9 @@ h1 {
     line-height: 1.35;
     color: aqua;
   }
+
+.container_trade_details{
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+}
